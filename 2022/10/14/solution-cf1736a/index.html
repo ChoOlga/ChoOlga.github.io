@@ -10,15 +10,15 @@
   
   
   
-  <meta name="description" content="题意给定有 $n$ 个 $0$ 或 $1$ 的数列 $a,b$，进行以下操作：  选择任意一个 $i$，将 $a_i$ 变为 $0$ 或 $1$。 将 $a$ 数列任意排序  求将数列 $a$ 变成数列 $b$ 的最小操作数。 思路十分简单，开两个变量 $ans1$ 和 $ans2$ 分别记录不排序时将 $a$ 变成 $b$ 的最小操作数与排序后将 $a$ 变成 $b$ 的最小操作数。最后，输出">
+  <meta name="description" content="题意给定有 $n$ 个 $0$ 或 $1$ 的数列 $a,b$，进行以下操作：  选择任意一个 $i$，将 $a_i$ 变为 $0$ 或 $1$。 将 $a$ 数列任意排序  求将数列 $a$ 变成数列 $b$ 的最小操作数。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1736A Make A Equal to B 题解">
 <meta property="og:url" content="http://choolga.github.io/2022/10/14/solution-cf1736a/index.html">
 <meta property="og:site_name" content="Cho_Olga&#39;s Blog">
-<meta property="og:description" content="题意给定有 $n$ 个 $0$ 或 $1$ 的数列 $a,b$，进行以下操作：  选择任意一个 $i$，将 $a_i$ 变为 $0$ 或 $1$。 将 $a$ 数列任意排序  求将数列 $a$ 变成数列 $b$ 的最小操作数。 思路十分简单，开两个变量 $ans1$ 和 $ans2$ 分别记录不排序时将 $a$ 变成 $b$ 的最小操作数与排序后将 $a$ 变成 $b$ 的最小操作数。最后，输出">
+<meta property="og:description" content="题意给定有 $n$ 个 $0$ 或 $1$ 的数列 $a,b$，进行以下操作：  选择任意一个 $i$，将 $a_i$ 变为 $0$ 或 $1$。 将 $a$ 数列任意排序  求将数列 $a$ 变成数列 $b$ 的最小操作数。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-04T04:52:43.767Z">
+<meta property="article:modified_time" content="2022-12-04T05:03:25.607Z">
 <meta property="article:author" content="Cho_Olga">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -99,6 +99,7 @@
 <li>将 $a$ 数列任意排序</li>
 </ul>
 <p>求将数列 $a$ 变成数列 $b$ 的最小操作数。</p>
+<span id="more"></span>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>十分简单，开两个变量 $ans1$ 和 $ans2$ 分别记录不排序时将 $a$ 变成 $b$ 的最小操作数与排序后将 $a$ 变成 $b$ 的最小操作数。最后，输出 $\min(ans1,ans2)$ 即可。</p>
 <p><strong>注意：由于排序也算一次操作，所以要将 $ans2$ 的值初始化为 $1$。</strong></p>
 <p>另外，<strong>多测清空</strong>！</p>

@@ -10,15 +10,15 @@
   
   
   
-  <meta name="description" content="题意给定一个数 $x$，定义一次操作为   将 $x$ 增加 $1$； 如果 $x$ 是 $3$ 的倍数，则将 $x$ 除以 $3$。  问 $k$ 次操作后，$x$ 的值。 思路最开始思路：$O(k)$ 大暴力，准备交后再一看数据范围：$k \leq 10^{18}$。人差点没了。 十分明显的找规律题，手造了一组 $k$ 比较大的数据后发现 $x$ 到 $1$ 之后就会一直按照一个规律变化：$1">
+  <meta name="description" content="题意给定一个数 $x$，定义一次操作为   将 $x$ 增加 $1$； 如果 $x$ 是 $3$ 的倍数，则将 $x$ 除以 $3$。  问 $k$ 次操作后，$x$ 的值。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="P8588 『JROI-8』雷雨天特别行动科 题解">
 <meta property="og:url" content="http://choolga.github.io/2022/10/27/solution-p8588/index.html">
 <meta property="og:site_name" content="Cho_Olga&#39;s Blog">
-<meta property="og:description" content="题意给定一个数 $x$，定义一次操作为   将 $x$ 增加 $1$； 如果 $x$ 是 $3$ 的倍数，则将 $x$ 除以 $3$。  问 $k$ 次操作后，$x$ 的值。 思路最开始思路：$O(k)$ 大暴力，准备交后再一看数据范围：$k \leq 10^{18}$。人差点没了。 十分明显的找规律题，手造了一组 $k$ 比较大的数据后发现 $x$ 到 $1$ 之后就会一直按照一个规律变化：$1">
+<meta property="og:description" content="题意给定一个数 $x$，定义一次操作为   将 $x$ 增加 $1$； 如果 $x$ 是 $3$ 的倍数，则将 $x$ 除以 $3$。  问 $k$ 次操作后，$x$ 的值。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-04T04:45:03.042Z">
+<meta property="article:modified_time" content="2022-12-04T05:04:42.204Z">
 <meta property="article:author" content="Cho_Olga">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -99,6 +99,7 @@
 <li>如果 $x$ 是 $3$ 的倍数，则将 $x$ 除以 $3$。</li>
 </ol>
 <p>问 $k$ 次操作后，$x$ 的值。</p>
+<span id="more"></span>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>最开始思路：$O(k)$ 大暴力，准备交后再一看数据范围：$k \leq 10^{18}$。<del>人差点没了</del>。</p>
 <p>十分明显的找规律题，手造了一组 $k$ 比较大的数据后发现 $x$ 到 $1$ 之后就会一直按照一个规律变化：$1 \to 2\to 3\to 1\to 2\to \cdots$。</p>
 <p>于是就有了一下思路：</p>

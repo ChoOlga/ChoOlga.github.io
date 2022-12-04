@@ -10,19 +10,19 @@
   
   
   
-  <meta name="description" content="题意现有一个 $n \times n$ 的棋盘，棋盘上放置了 $m$ 个车。他们满足：  每两个车都在不同的格中； 每两个车都不能互相攻击（即每两个车都不在同一行同一列上）。  问将其中任意一个车移动一次，能否使得形成的盘面还满足上面的条件。 思路一道结论题，通过题意可知，每两个车都不能互相攻击。这里我们可以分两种情况讨论：  当 $m\geq n$ 的时候，棋盘可抽象成下图  很明显，任意一个车">
+  <meta name="description" content="题意现有一个 $n \times n$ 的棋盘，棋盘上放置了 $m$ 个车。他们满足：  每两个车都在不同的格中； 每两个车都不能互相攻击（即每两个车都不在同一行同一列上）。  问将其中任意一个车移动一次，能否使得形成的盘面还满足上面的条件。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1749A Cowardly Rooks 题解">
 <meta property="og:url" content="http://choolga.github.io/2022/10/27/solution-cf1749a/index.html">
 <meta property="og:site_name" content="Cho_Olga&#39;s Blog">
-<meta property="og:description" content="题意现有一个 $n \times n$ 的棋盘，棋盘上放置了 $m$ 个车。他们满足：  每两个车都在不同的格中； 每两个车都不能互相攻击（即每两个车都不在同一行同一列上）。  问将其中任意一个车移动一次，能否使得形成的盘面还满足上面的条件。 思路一道结论题，通过题意可知，每两个车都不能互相攻击。这里我们可以分两种情况讨论：  当 $m\geq n$ 的时候，棋盘可抽象成下图  很明显，任意一个车">
+<meta property="og:description" content="题意现有一个 $n \times n$ 的棋盘，棋盘上放置了 $m$ 个车。他们满足：  每两个车都在不同的格中； 每两个车都不能互相攻击（即每两个车都不在同一行同一列上）。  问将其中任意一个车移动一次，能否使得形成的盘面还满足上面的条件。">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/k0yt2f0e.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/ergzsa14.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/hgnu762t.png">
 <meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/nl0izqd8.png">
 <meta property="article:published_time" content="2022-10-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-12-04T04:47:00.471Z">
+<meta property="article:modified_time" content="2022-12-04T05:04:04.586Z">
 <meta property="article:author" content="Cho_Olga">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -104,6 +104,7 @@
 <li>每两个车都不能互相攻击（即每两个车都不在同一行同一列上）。</li>
 </ul>
 <p>问将其中任意一个车移动一次，能否使得形成的盘面还满足上面的条件。</p>
+<span id="more"></span>
 <h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一道结论题，通过题意可知，每两个车都不能互相攻击。这里我们可以分两种情况讨论：</p>
 <ol>
 <li><p>当 $m\geq n$ 的时候，棋盘可抽象成下图</p>
