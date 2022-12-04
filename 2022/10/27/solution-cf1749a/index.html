@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>CF1749A Cowardly Rooks 题解 | Cho_Olga&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="题意现有一个 $n \times n$ 的棋盘，棋盘上放置了 $m$ 个车。他们满足：  每两个车都在不同的格中； 每两个车都不能互相攻击（即每两个车都不在同一行同一列上）。  问将其中任意一个车移动一次，能否使得形成的盘面还满足上面的条件。 思路一道结论题，通过题意可知，每两个车都不能互相攻击。这里我们可以分两种情况讨论：  当 $m\geq n$ 的时候，棋盘可抽象成下图  很明显，任意一个车">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CF1749A Cowardly Rooks 题解">
+<meta property="og:url" content="http://choolga.github.io/2022/10/27/solution-cf1749a/index.html">
+<meta property="og:site_name" content="Cho_Olga&#39;s Blog">
+<meta property="og:description" content="题意现有一个 $n \times n$ 的棋盘，棋盘上放置了 $m$ 个车。他们满足：  每两个车都在不同的格中； 每两个车都不能互相攻击（即每两个车都不在同一行同一列上）。  问将其中任意一个车移动一次，能否使得形成的盘面还满足上面的条件。 思路一道结论题，通过题意可知，每两个车都不能互相攻击。这里我们可以分两种情况讨论：  当 $m\geq n$ 的时候，棋盘可抽象成下图  很明显，任意一个车">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/k0yt2f0e.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/ergzsa14.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/hgnu762t.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/image_hosting/nl0izqd8.png">
+<meta property="article:published_time" content="2022-10-26T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-12-04T04:47:00.471Z">
+<meta property="article:author" content="Cho_Olga">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/image_hosting/k0yt2f0e.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Cho_Olga&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/css/highlight.css">
+
+<meta name="generator" content="Hexo 5.4.2"></head>
+
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" style="background-image: url(/images/bg.jpg)" title="看什么呢">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title
+        
+        >首页</a>
+      
+        <a class="nav-item" href="/archives" title
+        
+        >归档</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-solution-cf1749a" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      CF1749A Cowardly Rooks 题解
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2022/10/27/solution-cf1749a/" class="article-date">
+  <time datetime="2022-10-26T16:00:00.000Z" itemprop="datePublished">2022-10-27</time>
+</a>
+    
+    
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-mac" itemprop="articleBody">
+      
+        <h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>现有一个 $n \times n$ 的棋盘，棋盘上放置了 $m$ 个车。他们满足：</p>
+<ul>
+<li>每两个车都在不同的格中；</li>
+<li>每两个车都不能互相攻击（即每两个车都不在同一行同一列上）。</li>
+</ul>
+<p>问将其中任意一个车移动一次，能否使得形成的盘面还满足上面的条件。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一道结论题，通过题意可知，每两个车都不能互相攻击。这里我们可以分两种情况讨论：</p>
+<ol>
+<li><p>当 $m\geq n$ 的时候，棋盘可抽象成下图</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/k0yt2f0e.png" alt=""></p>
+<p>很明显，任意一个车都不能移动，否则就会进入其它车的攻击范围：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/ergzsa14.png" alt=""></p>
+<p>所以，当 $m\geq n$ 时，不能完成操作。</p>
+</li>
+<li><p>当 $m &lt; n$ 的时候，棋盘可抽象成下图</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/hgnu762t.png" alt=""></p>
+<p>我们可以选择最下面的车，移动到第一行，就可以避开其它车：</p>
+<p><img src="https://cdn.luogu.com.cn/upload/image_hosting/nl0izqd8.png" alt=""></p>
+<p>所以，当 $m &lt; n$ 时，可以完成操作。</p>
+</li>
+</ol>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><div class="highlight-box"autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" contenteditable="true"data-rel="CPP"><figure class="iseeu highlight /cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> c = <span class="number">0</span>, f = <span class="number">1</span>; <span class="type">char</span> ch = <span class="built_in">getchar</span>();</span><br><span class="line">	<span class="keyword">while</span>(ch &lt; <span class="string">&#x27;0&#x27;</span> || ch &gt; <span class="string">&#x27;9&#x27;</span>) &#123;<span class="keyword">if</span>(ch == <span class="string">&#x27;-&#x27;</span>) f = <span class="number">-1</span>; ch = <span class="built_in">getchar</span>();&#125;</span><br><span class="line">    <span class="keyword">while</span>(ch &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; ch &lt;= <span class="string">&#x27;9&#x27;</span>) &#123;c = (c &lt;&lt; <span class="number">1</span>) + (c &lt;&lt; <span class="number">3</span>) + (ch ^ <span class="number">48</span>); ch = <span class="built_in">getchar</span>();&#125;</span><br><span class="line">	<span class="keyword">return</span> c * f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> t = <span class="built_in">read</span>();</span><br><span class="line">	<span class="keyword">while</span>(t --) &#123;</span><br><span class="line">		<span class="type">int</span> n = <span class="built_in">read</span>(), m = <span class="built_in">read</span>(), x, y;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i ++) &#123;</span><br><span class="line">			x = <span class="built_in">read</span>();</span><br><span class="line">			y = <span class="built_in">read</span>();</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(m &gt;= n) <span class="built_in">puts</span>(<span class="string">&quot;NO&quot;</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">puts</span>(<span class="string">&quot;YES&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+      <a href="/2022/11/26/solution-cf1761a/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption"></strong>
+        <div class="article-nav-title">
+          
+            CF1761A Two Permutations 题解
+          
+        </div>
+      </a>
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2022/10/27/solution-p8588/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">P8588 『JROI-8』雷雨天特别行动科 题解</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    <link rel="stylesheet" href="/css/gitment.css"> 
+<script src="/js/gitment.js"></script>
+
+<div id="gitmentContainer"></div>
+
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpg" title="看什么呢"></img>
+    <h3 class="avatar-name">
+      
+        Cho_Olga&#39;s Blog
+      
+    </h3>
+    <p class="avatar-slogan">
+      在追寻梦的路上难免会有跌跌撞撞，唯有坚持才是胜利！
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag">题解</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/%E9%A2%98%E8%A7%A3/" style="font-size: 10px;">题解</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/11/27/solution-cf1758a/">CF1758A SSeeeeiinngg DDoouubbllee 题解</a>
+          </li>
+        
+          <li>
+            <a href="/2022/11/26/solution-cf1761a/">CF1761A Two Permutations 题解</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/27/solution-cf1749a/">CF1749A Cowardly Rooks 题解</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/27/solution-p8588/">P8588 『JROI-8』雷雨天特别行动科 题解</a>
+          </li>
+        
+          <li>
+            <a href="/2022/10/27/solution-p8589/">P8589 『JROI-8』对了，还有花，少女，银河 题解</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+      <div class="widget-box">
+    <h3 class="widget-title">友链</h3>
+    <div class="widget">
+      
+        <a style="display: block;" href="https://www.luogu.com.cn/" title target='_blank'
+        >Luogu</a>
+      
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2022 Cho_Olga &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a target="_blank" rel="noopener" href="https://github.com/yiluyanxia/hexo-theme-antiquity">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">不蒜子告之   阁下是第<span id="busuanzi_value_site_pv"></span>个访客</span>
+  </div>
+</footer>
+      <script src="https://code.jquery.com/jquery-2.0.3.min.js"></script>
+<script>
+if (!window.jQuery) {
+var script = document.createElement('script');
+script.src = "/js/jquery-2.0.3.min.js";
+document.body.write(script);
+}
+</script>
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<!--script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
